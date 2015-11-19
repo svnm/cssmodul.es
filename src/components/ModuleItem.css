@@ -1,0 +1,13 @@
+.item {
+  list-style: none;
+  border-bottom: 1px solid rgb(137, 138, 140);
+}
+
+.btnDefault, 
+.btnDefault:active, 
+.btnDefault:focus, 
+.btnDefault:hover {
+  margin-right: 5px;
+  background-color: #ff6600;
+  color: rgb(137, 138, 140);
+}

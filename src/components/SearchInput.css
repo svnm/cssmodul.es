@@ -1,0 +1,12 @@
+.search {
+  color: #d4fd02;
+  display: inline-block;
+  width: 100%;
+}
+
+.searchInput {
+  display: inline-block;
+  float: left;
+  width: 100%;
+  padding: 5px;
+}
