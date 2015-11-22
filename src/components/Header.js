@@ -8,7 +8,7 @@ export default class SearchInput extends Component {
       <div className={styles.header}>
         <h1 className={styles.headerTitle}>CSS Modules</h1>
         <p className={styles.headerDescription}>
-          This is just a header yooo...
+          Search for any css modules on npm...
         </p>
       </div>
     );

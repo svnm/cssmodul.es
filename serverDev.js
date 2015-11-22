@@ -14,18 +14,36 @@ app.use(require('webpack-dev-middleware')(compiler, {
   publicPath: config.output.publicPath
 }));
 
+app.use('/public', express.static(__dirname + '/public'))
 
-app.get('/api/books', function(req, res) {
+/*
+get npm modules by keyword
+https://registry.npmjs.org/-/_view/byKeyword?startkey=[%22table%22]&endkey=[%22table%22,{}]&group_level=3
 
-	console.log('ey');
+get download count for an npm module
+https://api.npmjs.org/downloads/point/last-week/react-search
+
+get all info for a repo
+http://registry.npmjs.org/react-search
+
+get stargazer count...
+github
+
+the only real info on searching npm api...
+http://stackoverflow.com/questions/13657140/how-to-get-all-npm-packages-that-match-a-particular-keyword-in-json-format
+
+*/
+
+
+/* get all modules by keyword */
+app.get('/api/modules', function(req, res) {
 
   var keyword = req.param('keyword');
 
 	var registryUrl = 'https://registry.npmjs.org',
       dlCountUrl    = 'https://api.npmjs.org/downloads/point/last-week';
       viewsPath     = '-/_view',
-      keywordView   = 'byKeyword',
-      dlCountUrl    = 'https://api.npmjs.org/downloads/point/last-week';
+      keywordView   = 'byKeyword';
 
   var query         = 'startkey=["' + keyword + '"]' 
       query        += '&endkey=["' + keyword + '",{}]'
@@ -42,9 +60,32 @@ app.get('/api/books', function(req, res) {
 		}
 
 		res.json({ 
-  		  components: JSON.parse(body)
+  		  modules: JSON.parse(body)
   		})
 	});
+
+});
+
+
+/* get all module details */
+app.get('/api/moduleDetails', function(req, res) {
+
+  var module = req.param('module');
+  var registryUrl = 'https://registry.npmjs.org';
+  var url = [registryUrl, module].join('/');
+
+  request(url, function (error, response, body) {
+
+    if (!error) {
+      console.log(body);
+    } else {
+      console.log("We’ve encountered an error: " + error);
+    }
+
+    res.json({ 
+        module: JSON.parse(body)
+      })
+  });
 
 });
 

@@ -1,20 +1,22 @@
 import { combineReducers } from 'redux'
-import { REQUEST_POSTS, RECEIVE_POSTS } from '../actions/actions'
+import { REQUEST_POSTS, RECEIVE_POSTS, SELECT_ITEM } from '../actions/actions'
 
-/* posts */
-function posts(
-  state = { isFetching: false, items: [] }, action) {
+function npmModules(
+  state = { isFetching: false, isSelected: false, items: [], item: {} }, action) {
   switch (action.type) {
+    case SELECT_ITEM:
+      return Object.assign({}, state, {
+        isSelected: true,
+        item: action.item
+      })
     case REQUEST_POSTS:
       return Object.assign({}, state, {
-        isFetching: true,
-        didInvalidate: false
+        isFetching: true
       })
     case RECEIVE_POSTS:
       return Object.assign({}, state, {
         isFetching: false,
-        didInvalidate: false,
-        items: action.components,
+        items: action.items,
         lastUpdated: action.receivedAt
       })
     default:
@@ -22,6 +24,6 @@ function posts(
   }
 }
 
-const rootReducer = combineReducers({ posts })
+const rootReducer = combineReducers({ npmModules })
 
 export default rootReducer

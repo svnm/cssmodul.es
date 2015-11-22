@@ -5,6 +5,9 @@ import Search from './containers/Search'
 import Header from './components/Header'
 import { render } from 'react-dom'
 
+/* generic styles */
+import styles from './styles/base.css';
+
 const store = configureStore()
 
 export default class Root extends Component {

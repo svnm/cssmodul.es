@@ -2,25 +2,23 @@ import React from 'react';
 import styles from './ModuleItem.css';
 
 function ModuleItem(props) {
-    const { name, starred, findModule } = props;
 
-    let starClassName = 'fa fa-star-o'
-    if(starred){
-      starClassName = 'fa fa-star'
-    }
+    const { name, author } = props.item
 
     return (
 
-      <li className={styles.item}>
-          <div>
-            <span>{props.name}</span>
-          </div>
+      <div className={styles.item}>
 
-          <button className={styles.btnDefault} onClick={() => findModule(props.id)}>
-            <i className={starClassName} />
-          </button>
+        <span>{name}</span>
+        <span>{author.name}</span>        
+        
+        { /*
+        <button className={styles.btnDefault} onClick={() => findModule(props.id)}>
+          <i className='fa fa-star' />
+        </button>
+        */}
 
-      </li>
+      </div>
 
     );
 }

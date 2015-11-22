@@ -1,27 +1,37 @@
-import React, { Component, PropTypes } from 'react';
-import styles from './SearchInput.css';
+import React, { Component, PropTypes } from 'react'
+import styles from './SearchInput.css'
+
+import Search from 'react-search'
 
 export default class SearchInput extends Component {
 
   static propTypes = {
-    findModule: PropTypes.func.isRequired
+    fetchModuleDetails: PropTypes.func.isRequired,
+    items: PropTypes.array.isRequired
   }
 
   render () {
+
+    const keys = ['title']
+    const searchKey = 'title'
+
     return (
 
-      <div className={styles.search}>
+      <div className={styles.search} >
 
-        <input
-          className={styles.searchInput}
-          type="text"
-          autoFocus="true"
-          placeholder="Search for a css module"
-          value={this.state.name}
-          onChange={this.handleChange.bind(this)}
-          onKeyDown={this.handleSubmit.bind(this)} />
+        {/* 
+          would love this...
+          <Search className={styles.searchInput} 
+         */}
 
-        <i className={styles.searchButton}></i>
+        <Search items={this.props.items} 
+                keys={keys} 
+                searchKey={searchKey} 
+                placeholder='Search for a css module' 
+                onChange={this.handleChange.bind(this)}
+                onClick={this.handleSubmit.bind(this)} />
+
+        <i className='fa fa-star-o' />
 
       </div>
 
@@ -30,22 +40,17 @@ export default class SearchInput extends Component {
 
   constructor (props, context) {
     super(props, context);
-    this.state = {
-      name: this.props.name || '',
-      items: ['ruby', 'javascript', 'lua', 'go', 'julia', 'c', 'scala','haskell']
-    };
+    this.state = {};
   }
 
   handleChange (e) {
-    this.setState({ name: e.target.value });
+    this.setState({ name: e.target.text })
   }
 
   handleSubmit (e) {
-    const name = e.target.value.trim();
-    if (e.which === 13) {
-      this.props.findModule(name);
-      this.setState({ name: '' });
-    }
+    const name = e.target.text
+    this.setState({ name: '' })
+    this.props.fetchModuleDetails(name)
   }
 
 }
