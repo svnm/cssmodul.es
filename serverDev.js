@@ -5,6 +5,7 @@ var config = require('./webpack.config.dev');
 var path = require('path');
 var request = require("request");
 var	cheerio = require("cheerio");
+var GitHubApi = require("github");
 
 var app = express();
 var compiler = webpack(config);
@@ -26,11 +27,13 @@ https://api.npmjs.org/downloads/point/last-week/react-search
 get all info for a repo
 http://registry.npmjs.org/react-search
 
+the only real info on searching npm api...
+http://stackoverflow.com/questions/13657140/how-to-get-all-npm-packages-that-match-a-particular-keyword-in-json-format
+
 get stargazer count...
 github
 
-the only real info on searching npm api...
-http://stackoverflow.com/questions/13657140/how-to-get-all-npm-packages-that-match-a-particular-keyword-in-json-format
+20e6dac8fb3d6be12c75bdd590bd62d879d875dd
 
 */
 
@@ -67,7 +70,7 @@ app.get('/api/modules', function(req, res) {
 });
 
 
-/* get all module details */
+/* get a modules details */
 app.get('/api/moduleDetails', function(req, res) {
 
   var module = req.param('module');
@@ -85,6 +88,27 @@ app.get('/api/moduleDetails', function(req, res) {
     res.json({ 
         module: JSON.parse(body)
       })
+  });
+
+});
+
+
+/* get a github repository details */
+app.get('/api/gitRepoDetails', function(req, res) {
+
+  //var repo = req.param('repo'); // https://github.com/StevenIseki/react-search
+  // token 20e6dac8fb3d6be12c75bdd590bd62d879d875dd;
+
+  var github = new GitHubApi({ version: "3.0.0" });
+
+  github.repos.getStargazers({
+      user: "StevenIseki",
+      repo: "react-search"  
+  }, function(err, response) {
+    //console.log(response)
+    res.json({ 
+      stargazers: response
+    })
   });
 
 });

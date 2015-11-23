@@ -1,20 +1,29 @@
 html {
-  background-color: rgb(33, 33, 33);
   color: #f0f0f0;
   font-family: 'Source Sans Pro', sans-serif;
+  padding: 30px;
 }
 
-p, h1, h2, h3, h4, h5, span {
-  color: #f0f0f0;
+
+p, h1, h2, h3, h4, h5, span, li {
+  color: #666;
   font-weight: normal;
 }
 
+
+pre, code {
+  background-color: rgb(33, 33, 33);
+  color: #d4fd02;
+  padding: 10px;
+}
+
 a {
-  color: #f0f0f0;
-  text-decoration: none;  
+  color: #d4fd02;
+  text-decoration: none;
+  opacity: 0.8;
 }
 
 a:hover {
-  color: #f0f0f0;
-  text-decoration: underline;  
+  color: #d4fd02;
+  opacity: 1;
 }

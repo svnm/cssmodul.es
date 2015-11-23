@@ -9,7 +9,6 @@ import styles from './Search.css';
 class SearchApp extends Component {
   constructor(props) {
     super(props)
-    this.handleRefreshClick = this.handleRefreshClick.bind(this)
     this.fetchModuleDetails = this.fetchModuleDetails.bind(this)
   }
 
@@ -32,18 +31,14 @@ class SearchApp extends Component {
     return (
       <div className={styles.search}>
 
+        <SearchInput fetchModuleDetails={this.fetchModuleDetails}
+                     isFetching ={isFetching}
+                     items={items} />
+
         { 
           isSelected && item !== undefined && 
             <ModuleItem item={item} />
-        }
-
-        <SearchInput fetchModuleDetails={this.fetchModuleDetails} 
-                     items={items} />
-
-
-        { isFetching && items.length === 0 && <h2>Loading CSS Modules...</h2> }
-        
-        { !isFetching && items.length === 0 && <h2>No results.</h2> }
+        }        
         
       </div>
     )

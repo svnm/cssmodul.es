@@ -1,13 +1,12 @@
-.item {
-  list-style: none;
-  border-bottom: 1px solid rgb(137, 138, 140);
+.name {
+  font-size: 30px;
+  font-weight: bold;
+  color: rgb(137, 138, 140);
+  margin-bottom: 0px;
+  display: inline-block;
 }
 
-.btnDefault, 
-.btnDefault:active, 
-.btnDefault:focus, 
-.btnDefault:hover {
-  margin-right: 5px;
-  background-color: #ff6600;
+.authorName {
   color: rgb(137, 138, 140);
+  margin-bottom: 0px;
 }

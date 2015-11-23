@@ -5,6 +5,7 @@ function npmModules(
   state = { isFetching: false, isSelected: false, items: [], item: {} }, action) {
   switch (action.type) {
     case SELECT_ITEM:
+      console.log(action.item)
       return Object.assign({}, state, {
         isSelected: true,
         item: action.item

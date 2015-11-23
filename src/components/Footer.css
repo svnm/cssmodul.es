@@ -1,0 +1,15 @@
+.footer {
+	position: relative;
+	height: 300px;
+}
+
+.footerDescription {
+  color: rgb(137, 138, 140);
+  font-size: 22px;
+  position: absolute; 
+  bottom: 0;
+}
+
+.domain {
+  color: #d4fd02;	
+}

@@ -7,7 +7,8 @@ export default class SearchInput extends Component {
 
   static propTypes = {
     fetchModuleDetails: PropTypes.func.isRequired,
-    items: PropTypes.array.isRequired
+    items: PropTypes.array.isRequired,
+    isFetching: PropTypes.bool.isRequired
   }
 
   render () {
@@ -19,11 +20,6 @@ export default class SearchInput extends Component {
 
       <div className={styles.search} >
 
-        {/* 
-          would love this...
-          <Search className={styles.searchInput} 
-         */}
-
         <Search items={this.props.items} 
                 keys={keys} 
                 searchKey={searchKey} 
@@ -31,7 +27,10 @@ export default class SearchInput extends Component {
                 onChange={this.handleChange.bind(this)}
                 onClick={this.handleSubmit.bind(this)} />
 
-        <i className='fa fa-star-o' />
+        { 
+          this.props.isFetching &&
+            <h2>Loading CSS Modules <span className={styles.loader}>...</span></h2>         
+        }
 
       </div>
 
