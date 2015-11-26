@@ -1,20 +1,21 @@
 html {
   color: #f0f0f0;
-  font-family: 'Source Sans Pro', sans-serif;
-  padding: 30px;
+  font-family: Century Gothic,CenturyGothic,AppleGothic,sans-serif;
+  background-color: #444;
 }
 
-
 p, h1, h2, h3, h4, h5, span, li {
-  color: #666;
+  color: #ededed;
   font-weight: normal;
 }
 
+pre {
+  padding: 10px;
+}
 
 pre, code {
-  background-color: rgb(33, 33, 33);
-  color: #d4fd02;
-  padding: 10px;
+  background-color: #fafafa;
+  color: #444;
 }
 
 a {

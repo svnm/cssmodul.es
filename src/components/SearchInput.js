@@ -13,7 +13,7 @@ export default class SearchInput extends Component {
 
   render () {
 
-    const keys = ['title']
+    const keys = ['title', 'description']
     const searchKey = 'title'
 
     return (
@@ -23,13 +23,23 @@ export default class SearchInput extends Component {
         <Search items={this.props.items} 
                 keys={keys} 
                 searchKey={searchKey} 
-                placeholder='Search for a css module' 
+                placeholder='Search for a css module...' 
                 onChange={this.handleChange.bind(this)}
                 onClick={this.handleSubmit.bind(this)} />
 
         { 
           this.props.isFetching &&
-            <h2>Loading CSS Modules <span className={styles.loader}>...</span></h2>         
+            <div className={styles.loader}>
+              <span className={styles.loaderBlock}></span>
+              <span className={styles.loaderBlock}></span>
+              <span className={styles.loaderBlock}></span>
+              <span className={styles.loaderBlock}></span>
+              <span className={styles.loaderBlock}></span>
+              <span className={styles.loaderBlock}></span>
+              <span className={styles.loaderBlock}></span>
+              <span className={styles.loaderBlock}></span>
+              <span className={styles.loaderBlock}></span>
+            </div>
         }
 
       </div>
@@ -47,7 +57,7 @@ export default class SearchInput extends Component {
   }
 
   handleSubmit (e) {
-    const name = e.target.text
+    const name = e.currentTarget.children[0].text
     this.setState({ name: '' })
     this.props.fetchModuleDetails(name)
   }

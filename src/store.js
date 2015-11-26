@@ -1,15 +1,3 @@
-/*
-import { createStore, applyMiddleware } from 'redux'
-import SearchReducer from './reducers/SearchReducer';
-
-const createStoreWithMiddleware = applyMiddleware(
-)(createStore)
-
-export default function configureStore(initialState) {
-  return createStoreWithMiddleware(SearchReducer, initialState)
-}
-*/
-
 import { createStore, applyMiddleware } from 'redux'
 import thunkMiddleware from 'redux-thunk'
 import createLogger from 'redux-logger'

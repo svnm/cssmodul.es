@@ -1,20 +1,29 @@
 import { combineReducers } from 'redux'
-import { REQUEST_POSTS, RECEIVE_POSTS, SELECT_ITEM } from '../actions/actions'
+import { REQUEST_MODULES, RECEIVE_MODULES, RECEIVE_MODULE_DETAILS } from '../actions/actions'
 
 function npmModules(
-  state = { isFetching: false, isSelected: false, items: [], item: {} }, action) {
+  state = { 
+    isFetching: false, 
+    isSelected: false, 
+    items: [],
+    starCount: 0,
+    item: {} }, action) {
   switch (action.type) {
-    case SELECT_ITEM:
+
+    case RECEIVE_MODULE_DETAILS:
       console.log(action.item)
       return Object.assign({}, state, {
         isSelected: true,
-        item: action.item
+        item: action.item,
+        starCount: action.starCount
       })
-    case REQUEST_POSTS:
+
+    case REQUEST_MODULES:
       return Object.assign({}, state, {
         isFetching: true
       })
-    case RECEIVE_POSTS:
+
+    case RECEIVE_MODULES:
       return Object.assign({}, state, {
         isFetching: false,
         items: action.items,

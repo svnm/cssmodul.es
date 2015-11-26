@@ -4,22 +4,34 @@ import marked from 'marked'
 
 function ModuleItem(props) {
 
-    const { name, author, stars, readme } = props.item
+    /* props */
+    const { name, repoLink, author, readme } = props.item
+
+    let authorName = null
+    if(author !== undefined){
+      if(author.name !== undefined){
+        authorName = author.name
+      }
+    }
+
 
     return (
 
       <div className={styles.item}>
 
         { 
-          name &&
-            <h2 className={styles.name}>{name} </h2>        
+          name && repoLink &&
+            <a target='_blank' className={styles.link} href={repoLink}>
+              <h2 className={styles.name}>{name} </h2>
+            </a>
         }
 
-         <i className='fa fa-star' /><span>13 </span>
-
+        <i className='fa fa-3x fa-star' />
+        <span className={styles.count}> {props.starCount} </span>
+ 
         { 
-          author.name &&
-            <h2 className={styles.authorName}>- {author.name} </h2>        
+          authorName &&
+            <h2 className={styles.authorName}>by {authorName} </h2>        
         }
         
         {

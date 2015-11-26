@@ -7,8 +7,34 @@ export default class Footer extends Component {
     return (
       <div className={styles.footer}>
         <p className={styles.footerDescription}>
-          Copyright 2015 isekivace.<span className={styles.domain}>nz</span>
+
+            <span>made with </span>
+
+            <span className={styles.icon}>
+              <i className='fa fa-1x fa-heart' />
+            </span>
+
+            <span> by </span>
+
+            <a target='_blank' 
+               className={styles.github} 
+               href='https://github.com/StevenIseki/cssmodules.com'>
+              <span>steven iseki isekivace.</span>
+              <span className={styles.extension}>nz</span>
+            </a>
+        
+          <br /><br />          
+
+          <span>check out </span>
+          <a target='_blank' 
+             href='https://github.com/StevenIseki/css-module-npm-boilerplate'>
+             css module npm boilerplate
+          </a>
+
+
         </p>
+
+
       </div>
     );
   }

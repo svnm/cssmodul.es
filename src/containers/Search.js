@@ -26,7 +26,7 @@ class SearchApp extends Component {
   }
 
   render() {
-    const { items, item, isFetching, isSelected } = this.props
+    const { items, item, starCount, isFetching, isSelected } = this.props
 
     return (
       <div className={styles.search}>
@@ -35,10 +35,10 @@ class SearchApp extends Component {
                      isFetching ={isFetching}
                      items={items} />
 
-        { 
+        {
           isSelected && item !== undefined && 
-            <ModuleItem item={item} />
-        }        
+            <ModuleItem item={item} starCount={starCount} />
+        }
         
       </div>
     )
@@ -48,19 +48,21 @@ class SearchApp extends Component {
 SearchApp.propTypes = {
   item: PropTypes.object.isRequired,
   items: PropTypes.array.isRequired,
+  starCount: PropTypes.number.isRequired,
   isFetching: PropTypes.bool.isRequired,
   isSelected: PropTypes.bool.isRequired,
   dispatch: PropTypes.func.isRequired
 }
 
 function mapStateToProps(state) {
-  const { items, item, isFetching, isSelected } = state.npmModules || { 
-    isFetching: true, 
-    item: {}, 
-    items: [], 
-    isSelected: false 
+  const { items, item, starCount, isFetching, isSelected } = state.npmModules || { 
+    isFetching: true,
+    item: {},
+    starCount: 0,
+    items: [],
+    isSelected: false
   }
-  return { items, item, isFetching, isSelected }
+  return { items, item, starCount, isFetching, isSelected }
 }
 
 export default connect(mapStateToProps)(SearchApp)

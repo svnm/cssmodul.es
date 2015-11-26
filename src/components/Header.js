@@ -8,9 +8,12 @@ export default class Header extends Component {
       <div className={styles.header}>
 
         <div className={styles.logo}></div>  
+
         <p className={styles.headerDescription}>
-          Search for any css modules on npm...
+          Search for any css modules on npm... 
+          make sure you include the css-module keyword in your <code>package.json</code>
         </p>
+
       </div>
     );
   }

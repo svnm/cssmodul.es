@@ -1,15 +1,32 @@
 .footer {
 	position: relative;
-	height: 300px;
+	background-color: #444;
+  text-align: center;
+  padding-top: 20px;
+  padding-bottom: 20px;
 }
 
 .footerDescription {
-  color: rgb(137, 138, 140);
-  font-size: 22px;
-  position: absolute; 
-  bottom: 0;
+  font-size: 20px;
 }
 
-.domain {
-  color: #d4fd02;	
+.github {
+  color: #fff;
+}
+
+.icon,
+.extension {
+  color: #d4fd02;
+}
+
+.footer a {
+  cursor: pointer;
+  transition: all .3s ease-in;
+  border-bottom: 2px solid transparent;
+  opacity: 1;
+}
+
+.footer a:hover {
+  opacity: 1;
+  border-bottom: 2px solid #d4fd02;
 }

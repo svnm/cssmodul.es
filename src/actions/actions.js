@@ -1,16 +1,18 @@
 import fetch from 'isomorphic-fetch'
 
-export const REQUEST_POSTS = 'REQUEST_POSTS'
-export const RECEIVE_POSTS = 'RECEIVE_POSTS'
-export const SELECT_ITEM = 'SELECT_ITEM'
+export const REQUEST_MODULES = 'REQUEST_MODULES'
+export const RECEIVE_MODULES = 'RECEIVE_MODULES'
+export const RECEIVE_MODULE_DETAILS = 'RECEIVE_MODULE_DETAILS'
 
 
 function requestModules(keyword) {
   return {
-    type: REQUEST_POSTS,
+    type: REQUEST_MODULES,
     keyword
   }
 }
+
+/* all modules */
 
 function receiveModules(keyword, json) {
   
@@ -23,7 +25,7 @@ function receiveModules(keyword, json) {
   })
 
   return {
-    type: RECEIVE_POSTS,
+    type: RECEIVE_MODULES,
     items: items,
     receivedAt: Date.now()
   }
@@ -32,22 +34,22 @@ function receiveModules(keyword, json) {
 export function fetchModules(keyword) {
   return dispatch => {
     dispatch(requestModules(keyword))
-    return fetch('http://127.0.0.1:3000/api/modules?keyword=react-component')
+    return fetch('http://127.0.0.1:3000/api/modules?keyword=css-module')
       .then(req => req.json())
       .then(json => dispatch(receiveModules(keyword, json)))
   }
 }
 
+/* module details */
 
 function receiveModuleDetails(json) {
-
   return {
-    type: SELECT_ITEM,
+    type: RECEIVE_MODULE_DETAILS,
     item: json.module,
+    starCount: json.starCount,
     receivedAt: Date.now()
   }
 }
-
 
 export function fetchModuleDetails(name) {
   return dispatch => {

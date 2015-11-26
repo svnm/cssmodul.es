@@ -1,9 +1,41 @@
+.item {
+  margin-left: 40px;
+  margin-right: 40px;
+}
+
 .name {
-  font-size: 30px;
+  font-size: 50px;
   font-weight: bold;
   color: rgb(137, 138, 140);
   margin-bottom: 0px;
   display: inline-block;
+  padding-right: 20px;
+}
+
+.item a {
+  cursor: pointer;
+  color: #d4fd02;
+  transition: all .3s ease-in;
+  border-bottom: 2px solid transparent;
+}
+
+.item a:hover {
+  color: #d4fd02;
+  border-bottom: 2px solid #d4fd02;
+}
+
+.link {
+  transition: all .3s ease-in;
+  border-bottom: 4px solid transparent !important;
+}
+
+.link:hover {
+  color: #fff;
+  border-bottom: 4px solid #fff !important;
+}
+
+.count {
+  font-size: 40px;
 }
 
 .authorName {
