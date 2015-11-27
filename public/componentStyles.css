@@ -1,0 +1,105 @@
+/*
+ componentStyles
+ BEM styles for some react components 
+*/
+
+/* react search */
+.react-search {
+  font-size: 150%;
+  font-weight: 200;
+  line-height: 1.5;
+  margin: 40px;
+  text-align: left;
+}
+
+.react-search__input {
+  width: 100%;
+  padding: 8px;
+}
+
+input[type=text] {
+  -webkit-transition: all 0.30s ease-in-out;
+  -moz-transition: all 0.30s ease-in-out;
+  -ms-transition: all 0.30s ease-in-out;
+  -o-transition: all 0.30s ease-in-out;
+  outline: none;
+  border: 1px solid #DDDDDD;
+  background-color: #444;
+}
+ 
+input[type=text]:focus {
+  box-shadow: 0 0 5px #d4fd02;
+  border: 1px solid #d4fd02;
+}
+
+::-webkit-input-placeholder {
+   color: #DDDDDD;
+  -webkit-transition: all 0.30s ease-in-out;
+}
+
+input:focus::-webkit-input-placeholder {
+ color: #d4fd02;
+}
+
+:-moz-placeholder { 
+   color: #d4fd02;  
+}
+
+::-moz-placeholder {
+   color: #d4fd02;  
+}
+
+:-ms-input-placeholder {  
+   color: #d4fd02;  
+}
+
+.react-search__menu {
+  display: block;
+  line-height: 1.5em;
+  text-decoration: none;
+  white-space: nowrap;
+  padding: 5px;
+}
+
+.react-search__menu-items {
+  list-style-type: none;
+  padding: 0px;
+  margin: 0px;
+  cursor: pointer;
+}
+
+.react-search__menu-item {
+  cursor: pointer;
+}
+
+/* item 1 */
+.react-search__menu-item a:nth-child(1){
+  color: #d4fd02;
+  font-size: 30px;
+  padding-right: 20px;
+}
+.react-search__menu-item a:nth-child(1):hover,
+.react-search__menu-item a:nth-child(1):visited {
+  font-weight: bold;
+}
+
+/* item 2 */
+.react-search__menu-item a:nth-child(2){
+  color: #fff;
+  font-size: 16px;
+}
+.react-search__menu-item a:nth-child(2):hover,
+.react-search__menu-item a:nth-child(2):visited {
+  opacity: 0.8;
+}
+
+.react-search__menu--open {
+  visibility: visible;
+  z-index: 2;
+}
+
+.react-search__menu--hidden {
+  display: none;
+}
+
+/* end react search */
