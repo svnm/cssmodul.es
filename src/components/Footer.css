@@ -1,22 +1,23 @@
 .footer {
-	position: relative;
-	background-color: #444;
+  position: relative;
+  background-color: #444;
   text-align: center;
   padding-top: 20px;
   padding-bottom: 20px;
-}
-
-.footerDescription {
   font-size: 20px;
 }
 
-.github {
+.yellow {
+  color: #d4fd02;
+}
+
+.white {
   color: #fff;
 }
 
-.icon,
-.extension {
-  color: #d4fd02;
+.group {
+  padding-top: 3px;
+  padding-bottom: 3px;
 }
 
 .footer a {

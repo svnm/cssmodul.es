@@ -53,6 +53,7 @@ function receiveModuleDetails(json) {
 
 export function fetchModuleDetails(name) {
   return dispatch => {
+    dispatch(requestModules(name))
     return fetch('http://127.0.0.1:3000/api/moduleDetails?module=' + name)
       .then(req => req.json())
       .then(json => dispatch(receiveModuleDetails(json)))

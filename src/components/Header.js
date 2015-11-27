@@ -7,11 +7,14 @@ export default class Header extends Component {
     return (
       <div className={styles.header}>
 
-        <div className={styles.logo}></div>  
+        <a href='http://cssmodul.es'><div className={styles.logo}></div></a>
 
-        <p className={styles.headerDescription}>
+        <p className={styles.description}>
           Search for any css modules on npm... 
-          make sure you include the css-module keyword in your <code>package.json</code>
+          make sure you include the 
+          <code className={styles.dark}>css-module</code> 
+          keyword in your 
+          <code className={styles.light}>package.json</code>
         </p>
 
       </div>

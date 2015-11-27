@@ -1,5 +1,7 @@
 import React, { Component, PropTypes } from 'react'
 import styles from './SearchInput.css'
+import loader from 'css-block-loader'
+Object.assign(styles, loader)
 
 import Search from 'react-search'
 
@@ -30,15 +32,15 @@ export default class SearchInput extends Component {
         { 
           this.props.isFetching &&
             <div className={styles.loader}>
-              <span className={styles.loaderBlock}></span>
-              <span className={styles.loaderBlock}></span>
-              <span className={styles.loaderBlock}></span>
-              <span className={styles.loaderBlock}></span>
-              <span className={styles.loaderBlock}></span>
-              <span className={styles.loaderBlock}></span>
-              <span className={styles.loaderBlock}></span>
-              <span className={styles.loaderBlock}></span>
-              <span className={styles.loaderBlock}></span>
+              <span className={styles.block}></span>
+              <span className={styles.block}></span>
+              <span className={styles.block}></span>
+              <span className={styles.block}></span>
+              <span className={styles.block}></span>
+              <span className={styles.block}></span>
+              <span className={styles.block}></span>
+              <span className={styles.block}></span>
+              <span className={styles.block}></span>
             </div>
         }
 

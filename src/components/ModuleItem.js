@@ -4,7 +4,6 @@ import marked from 'marked'
 
 function ModuleItem(props) {
 
-    /* props */
     const { name, repoLink, author, readme } = props.item
 
     let authorName = null
@@ -13,7 +12,6 @@ function ModuleItem(props) {
         authorName = author.name
       }
     }
-
 
     return (
 

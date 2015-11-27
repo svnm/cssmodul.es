@@ -5,6 +5,7 @@ var config = require('./webpack.config.dev');
 var path = require('path');
 var request = require("request");
 var GitHubApi = require("github");
+var favicon = require('serve-favicon');
 var app = express();
 
 app.use('/public', express.static(__dirname + '/public'))
@@ -13,7 +14,6 @@ app.use('/public', express.static(__dirname + '/public'))
 get npm modules by keyword - https://registry.npmjs.org/-/_view/byKeyword?startkey=[%22table%22]&endkey=[%22table%22,{}]&group_level=3
 get download count for an npm module - https://api.npmjs.org/downloads/point/last-week/react-search
 get all info for a repo - http://registry.npmjs.org/react-search
-the only real info on searching npm api... http://stackoverflow.com/questions/13657140/how-to-get-all-npm-packages-that-match-a-particular-keyword-in-json-format
 */
 
 /* get all modules by keyword */
@@ -35,7 +35,6 @@ app.get('/api/modules', function(req, res) {
 	request(url, function (error, response, body) {
 
 		if (!error) {
-			//console.log(body);
 		} else {
 			console.log("We’ve encountered an error: " + error);
 		}
@@ -58,7 +57,6 @@ app.get('/api/moduleDetails', function(req, res) {
   request(url, function (error, response, body) {
 
     if (!error) {
-      // console.log(body);
     } else {
       console.log("We’ve encountered an error: " + error);
     }
@@ -129,7 +127,6 @@ function getStargazers (user, repository, cb) {
       user: user,
       repo: repository 
   }, function(err, response) {
-    //console.log(response)
     cb(response);    
   });
 }

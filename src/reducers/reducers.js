@@ -13,6 +13,7 @@ function npmModules(
     case RECEIVE_MODULE_DETAILS:
       console.log(action.item)
       return Object.assign({}, state, {
+        isFetching: false,
         isSelected: true,
         item: action.item,
         starCount: action.starCount
