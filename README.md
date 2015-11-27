@@ -1,4 +1,4 @@
-# cssmodules.com
+# cssmodul.es
 site for cssmodul.es and cssmodules.com
 
 Uses css modules, react, redux and isomorphic-fetch to query npm packages with the `css-module` keyword
