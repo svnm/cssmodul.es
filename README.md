@@ -19,7 +19,7 @@ open http://localhost:3000
 ```
 npm install
 npm run build
-npm start:prod
+npm run start:prod
 open http://localhost:3000
 ```
 
