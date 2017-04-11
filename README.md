@@ -10,7 +10,7 @@ Uses css modules, react, redux and isomorphic-fetch to query npm packages with t
 
 ```
 npm install
-npm start
+npm run dev
 open http://localhost:3000
 ```
 
@@ -18,8 +18,7 @@ open http://localhost:3000
 
 ```
 npm install
-npm run build
-npm run start:prod
+npm run site
 open http://localhost:3000
 ```
 

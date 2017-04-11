@@ -1,37 +1,28 @@
-var path = require('path');
-var webpack = require('webpack');
-var autoprefixer = require('autoprefixer');
-var ExtractTextPlugin = require('extract-text-webpack-plugin');
+const HtmlWebpackPlugin = require('html-webpack-plugin')
 
 module.exports = {
-  entry: ['./src/index'],
-  output: {
-    filename: 'bundle.js',
-    path: path.join(__dirname, 'public'),
-    publicPath: '/public/'
-  },
-  plugins: [
-    new ExtractTextPlugin('style.css', { allChunks: true }),
-    new webpack.optimize.OccurenceOrderPlugin(),
-    new webpack.DefinePlugin({
-      'process.env': {
-        'NODE_ENV': JSON.stringify('production')
-      }
-    }),
-    new webpack.optimize.UglifyJsPlugin({
-      compressor: {
-        warnings: false
-      }
-    })
-  ],
+  entry: './src/index.js',
+  devtool: 'inline-source-map',
+  output: { filename: 'bundle.js', publicPath: '' },
   module: {
-    loaders: [
-      { test: /\.js$/, loader: 'babel-loader', exclude: /node_modules/ },
-      { test: /\.css$/, loader: ExtractTextPlugin.extract('style-loader', 'css-loader?modules&importLoaders=1&localIdentName=[name]__[local]___[hash:base64:5]!postcss-loader') }
+    rules: [
+      {
+        test: /\.css$/,
+        use: [
+          'style-loader',
+          { loader: 'css-loader', options: { modules: true, importLoaders: 1, localIdentName: '[name]__[local]__[hash:base64:5]' } },
+          { loader: 'postcss-loader' },
+        ]
+      },
+      {
+        test: /\.js$/,
+        use: [ { loader: 'babel-loader', options: { presets: ['es2015', 'react', 'stage-0'], plugins: ['transform-decorators-legacy' ] } } ],
+        exclude: /node_modules/
+      }
     ]
   },
-  postcss: function () {
-    return [autoprefixer];
-  }
-  
-};
+  devServer: { historyApiFallback: true },
+  plugins: [
+    new HtmlWebpackPlugin({ title: 'Example', template: './index.html' })
+  ]
+}

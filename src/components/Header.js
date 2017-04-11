@@ -1,22 +1,21 @@
 import React, { Component, PropTypes } from 'react';
 import styles from './Header.css';
+import CSSModules from 'react-css-modules'
 
+@CSSModules(styles, { allowMultiple: true })
 export default class Header extends Component {
-
   render () {
     return (
-      <div className={styles.header}>
+      <div styleName='header'>
+        <a href='http://cssmodul.es'><div styleName='logo'></div></a>
 
-        <a href='http://cssmodul.es'><div className={styles.logo}></div></a>
-
-        <p className={styles.description}>
-          Search for any css modules on npm... 
-          make sure you include the 
-          <code className={styles.dark}>css-module</code> 
-          keyword in your 
-          <code className={styles.light}>package.json</code>
+        <p styleName='description'>
+          Search for any css modules on npm...
+          make sure you include the
+          <code styleName='dark'>css-module</code>
+          keyword in your
+          <code styleName='light'>package.json</code>
         </p>
-
       </div>
     );
   }
@@ -25,5 +24,4 @@ export default class Header extends Component {
     super(props, context);
     this.state = {};
   }
-
 }

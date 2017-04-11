@@ -2,9 +2,9 @@ import { combineReducers } from 'redux'
 import { REQUEST_MODULES, RECEIVE_MODULES, RECEIVE_MODULE_DETAILS } from '../actions/actions'
 
 function npmModules(
-  state = { 
-    isFetching: false, 
-    isSelected: false, 
+  state = {
+    isFetching: false,
+    isSelected: false,
     items: [],
     starCount: 0,
     item: {} }, action) {

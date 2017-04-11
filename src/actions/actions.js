@@ -15,13 +15,14 @@ function requestModules(keyword) {
 /* all modules */
 
 function receiveModules(keyword, json) {
-  
-  const items = json.modules.rows.map( (c,k) => {
-    return { 
-      keyword: c.key[0],
-      title: c.key[1],
-      description: c.key[2]
-    };
+  console.log(json)
+
+  const items = json.results.map( (r,k) => {
+    return {
+      keyword: r.package.keywords ? r.package.keywords[0] : '',
+      title: r.package.name,
+      description: r.package.description
+    }
   })
 
   return {
@@ -34,7 +35,7 @@ function receiveModules(keyword, json) {
 export function fetchModules(keyword) {
   return dispatch => {
     dispatch(requestModules(keyword))
-    return fetch('http://127.0.0.1:3000/api/modules?keyword=css-module')
+    return fetch(`https://api.npms.io/v2/search?q=${keyword}`)
       .then(req => req.json())
       .then(json => dispatch(receiveModules(keyword, json)))
   }
@@ -43,10 +44,14 @@ export function fetchModules(keyword) {
 /* module details */
 
 function receiveModuleDetails(json) {
+  console.log(json)
+  let starCount = json.collected.github
+    ? json.collected.github.starsCount
+    : json.collected.npm.starsCount
   return {
     type: RECEIVE_MODULE_DETAILS,
-    item: json.module,
-    starCount: json.starCount,
+    item: json.collected.metadata,
+    starCount: starCount,
     receivedAt: Date.now()
   }
 }
@@ -54,7 +59,7 @@ function receiveModuleDetails(json) {
 export function fetchModuleDetails(name) {
   return dispatch => {
     dispatch(requestModules(name))
-    return fetch('http://127.0.0.1:3000/api/moduleDetails?module=' + name)
+    return fetch(`https://api.npms.io/v2/package/${name}`)
       .then(req => req.json())
       .then(json => dispatch(receiveModuleDetails(json)))
   }

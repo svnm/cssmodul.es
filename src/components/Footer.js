@@ -1,42 +1,43 @@
 import React, { Component, PropTypes } from 'react';
 import styles from './Footer.css';
+import CSSModules from 'react-css-modules'
 
+@CSSModules(styles, { allowMultiple: true })
 export default class Footer extends Component {
-
   render () {
     return (
-      <div className={styles.footer}>
+      <div styleName='footer'>
 
-            <div className={styles.group}>
+            <div styleName='group'>
               <span>made with </span>
 
-              <span className={styles.icon}>
+              <span className='icon'>
                 <i className='fa fa-1x fa-heart' />
               </span>
 
               <span> by </span>
 
-              <a target='_blank' 
-                 className={styles.yellow} 
-                 href='http://www.isekivace.nz/'>
-                <span>isekivace.</span>
-                <span className={styles.yellow}>nz</span>
+              <a target='_blank'
+                 styleName='yellow'
+                 href='http://vace.nz/'>
+                <span>vace.</span>
+                <span styleName='yellow'>nz</span>
               </a>
             </div>
 
-            <div className={styles.group}>
+            <div styleName='group'>
               <span>check out </span>
-              <a target='_blank' 
+              <a target='_blank'
                  href='https://github.com/StevenIseki/css-module-npm-boilerplate'>
                  css module npm boilerplate
               </a>
             </div>
 
-            <div className={styles.group}>
-              <a target='_blank' 
-                 className={styles.yellow} 
+            <div styleName='group'>
+              <a target='_blank'
+                 styleName='yellow'
                  href='https://github.com/StevenIseki/cssmodules.com'>
-                <span className={styles.white}>
+                <span styleName='white'>
                   <i className='fa fa-1x fa-github' />
                 </span>
               </a>

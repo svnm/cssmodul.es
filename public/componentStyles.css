@@ -1,11 +1,10 @@
 /*
  componentStyles
- BEM styles for some react components 
+ BEM styles for some react components
 */
 
 /* react search */
 .react-search {
-  font-size: 150%;
   font-weight: 200;
   line-height: 1.5;
   margin: 40px;
@@ -26,7 +25,7 @@ input[type=text] {
   border: 1px solid #DDDDDD;
   background-color: #444;
 }
- 
+
 input[type=text]:focus {
   box-shadow: 0 0 5px #d4fd02;
   border: 1px solid #d4fd02;
@@ -41,16 +40,16 @@ input:focus::-webkit-input-placeholder {
  color: #d4fd02;
 }
 
-:-moz-placeholder { 
-   color: #d4fd02;  
+:-moz-placeholder {
+   color: #d4fd02;
 }
 
 ::-moz-placeholder {
-   color: #d4fd02;  
+   color: #d4fd02;
 }
 
-:-ms-input-placeholder {  
-   color: #d4fd02;  
+:-ms-input-placeholder {
+   color: #d4fd02;
 }
 
 .react-search__menu {
@@ -75,7 +74,7 @@ input:focus::-webkit-input-placeholder {
 /* item 1 */
 .react-search__menu-item a:nth-child(1){
   color: #d4fd02;
-  font-size: 30px;
+  font-size: 24px;
   padding-right: 20px;
 }
 .react-search__menu-item a:nth-child(1):hover,

@@ -1,12 +1,12 @@
 import React, { Component, PropTypes } from 'react'
 import styles from './SearchInput.css'
 import loader from 'css-block-loader'
+import Search from 'react-search'
+import CSSModules from 'react-css-modules'
 Object.assign(styles, loader)
 
-import Search from 'react-search'
-
+@CSSModules(styles, { allowMultiple: true })
 export default class SearchInput extends Component {
-
   static propTypes = {
     fetchModuleDetails: PropTypes.func.isRequired,
     items: PropTypes.array.isRequired,
@@ -14,33 +14,31 @@ export default class SearchInput extends Component {
   }
 
   render () {
-
     const keys = ['title', 'description']
     const searchKey = 'title'
 
     return (
 
-      <div className={styles.search} >
-
-        <Search items={this.props.items} 
-                keys={keys} 
-                searchKey={searchKey} 
-                placeholder='Search for a css module...' 
+      <div styleName='search'>
+        <Search items={this.props.items}
+                keys={keys}
+                searchKey={searchKey}
+                placeholder='Search for a css module...'
                 onChange={this.handleChange.bind(this)}
                 onClick={this.handleSubmit.bind(this)} />
 
-        { 
+        {
           this.props.isFetching &&
-            <div className={styles.loader}>
-              <span className={styles.block}></span>
-              <span className={styles.block}></span>
-              <span className={styles.block}></span>
-              <span className={styles.block}></span>
-              <span className={styles.block}></span>
-              <span className={styles.block}></span>
-              <span className={styles.block}></span>
-              <span className={styles.block}></span>
-              <span className={styles.block}></span>
+            <div styleName='loader'>
+              <span styleName='block'></span>
+              <span styleName='block'></span>
+              <span styleName='block'></span>
+              <span styleName='block'></span>
+              <span styleName='block'></span>
+              <span styleName='block'></span>
+              <span styleName='block'></span>
+              <span styleName='block'></span>
+              <span styleName='block'></span>
             </div>
         }
 

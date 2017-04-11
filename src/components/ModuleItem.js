@@ -1,9 +1,9 @@
 import React from 'react'
 import styles from './ModuleItem.css'
 import marked from 'marked'
+import CSSModules from 'react-css-modules'
 
 function ModuleItem(props) {
-
     const { name, repoLink, author, readme } = props.item
 
     let authorName = null
@@ -15,31 +15,29 @@ function ModuleItem(props) {
 
     return (
 
-      <div className={styles.item}>
-
-        { 
+      <div styleName='item'>
+        {
           name && repoLink &&
-            <a target='_blank' className={styles.link} href={repoLink}>
-              <h2 className={styles.name}>{name} </h2>
+            <a target='_blank' styleName='link' href={repoLink}>
+              <h2 styleName='name'>{name} </h2>
             </a>
         }
 
         <i className='fa fa-3x fa-star' />
-        <span className={styles.count}> {props.starCount} </span>
- 
-        { 
+        <span styleName='count'> {props.starCount} </span>
+
+        {
           authorName &&
-            <h2 className={styles.authorName}>by {authorName} </h2>        
+            <h2 styleName='authorName'>by {authorName} </h2>
         }
-        
+
         {
           readme &&
           <div dangerouslySetInnerHTML={{__html: marked(readme) }} />
         }
 
       </div>
-
     );
 }
 
-export default ModuleItem;
+export default CSSModules(ModuleItem, styles)

@@ -4,7 +4,7 @@
 }
 
 .name {
-  font-size: 50px;
+  font-size: 40px;
   font-weight: bold;
   color: rgb(137, 138, 140);
   margin-bottom: 0px;
@@ -35,7 +35,7 @@
 }
 
 .count {
-  font-size: 40px;
+  font-size: 30px;
 }
 
 .authorName {
